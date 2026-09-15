@@ -42,3 +42,7 @@ EXPOSE 7863
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s \
   CMD wget -qO- http://127.0.0.1:7863/healthz || exit 1
 ENTRYPOINT ["/app/wb2api", "-config", "/app/config.json"]
+# ===== Railway: 环境变量注入凭证（必须放在最后，覆盖上面的 ENTRYPOINT）=====
+COPY railway-entrypoint.sh /app/railway-entrypoint.sh
+RUN chmod 755 /app/railway-entrypoint.sh
+ENTRYPOINT ["/app/railway-entrypoint.sh"]
