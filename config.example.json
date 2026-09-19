@@ -53,7 +53,7 @@
     "token": ""
   },
   "pool": {
-    "max_in_flight": 3,
+    "max_in_flight": 8,
     "breaker_threshold": 3,
     "breaker_cooldown": "30m",
     "breaker_cooldown_max": "6h",
